@@ -6,25 +6,29 @@ module.exports = {
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
-      { loader: 'css-loader', options: { 
-          minimize: false, 
+      { loader: 'css-loader',
+        options: { 
+          sourceMap: true, 
+        }
+      },
+      { loader: 'postcss-loader', 
+        options: { 
+          sourceMap: true,
+          plugins: function() {
+            return [require('autoprefixer')]
+          } 
         } 
       },
-      { loader: 'postcss-loader', options: { 
-        sourceMap: true,
-        plugins: function() {
-          return [require('autoprefixer')]
-        } 
-      } },
       'resolve-url-loader',
-      { loader: 'sass-loader', options: { 
-        sourceMap: true,
-        includePaths: [
-          resolve(__dirname, '..', '..', '..', 'lib'), 
-          resolve(__dirname, '..', '..', '..', 'src'), 
-          'node_modules'
-        ]
-      }}
+      { loader: 'sass-loader', 
+        options: { 
+          sourceMap: true,
+          includePaths: [
+            resolve(__dirname, '..', '..', 'app'), 
+            'node_modules'
+          ]
+        }
+      }
     ]
   })
 }
