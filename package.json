@@ -1,0 +1,16 @@
+{
+  "name": "codemy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Zack Siri",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.31",
+    "@babel/preset-env": "^7.0.0-beta.31",
+    "page": "^1.7.1",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
