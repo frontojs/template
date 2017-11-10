@@ -10,6 +10,9 @@
     "page": "^1.7.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "route-recognizer": "^0.3.3",
+    "router_js": "^1.2.8",
+    "rsvp": "^4.7.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }
