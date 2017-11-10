@@ -1,15 +1,14 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/env", {
       "modules": false,
       "targets": {
         "browsers": "> 1%",
-        "uglify": true
       },
-      "useBuiltIns": true
+      "useBuiltIns": "entry"
     }],
-    "es2017",
-    "stage-0",
-    "react"
+    "@babel/es2017",
+    "@babel/stage-0",
+    "@babel/react"
   ]
 }

@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { join, resolve } = require('path');
+const { sync } = require('glob');
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -24,18 +25,16 @@ const config = {
   },
 
   plugins: [
-    new UglifyJSPlugin(),
+    require(resolve(__dirname, 'config', 'template')),
+    new UglifyJSPlugin({}),
     new ExtractTextPlugin({
-      'stylesheets/[name].[contentHash].css', allChunks: true
+      filename: 'stylesheets/[name].[contentHash].css', allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'app',
-      filename: 'app-[hash].min.js'
+      name: ['vendor', 'manifest'],
+      minChunks: Infinity
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor-[hash].min.js'
-    })
   ]
 };
 
+module.exports = config;
