@@ -1,7 +1,7 @@
 {
-  "name": "codemy",
+  "name": "frontojs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Zack Siri",
   "license": "MIT",
   "scripts": {
