@@ -7,10 +7,10 @@ class Application extends React.Component {
   render() {    
     return (
       <div id='Application'>
-        <div styleName='sidebar'>
+        <div className='some-global' styleName='sidebar'>
           Sidebar
         </div>
-        <div className='content'>
+        <div styleName='content'>
           <Pages />
         </div>
       </div>

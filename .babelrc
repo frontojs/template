@@ -13,6 +13,7 @@
   ],
 
   "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
     ["react-css-modules", { 
       "context": "./",
       "filetypes": {

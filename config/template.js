@@ -10,10 +10,8 @@ module.exports = new HtmlWebpackPlugin({
   title: 'Codemy.net - Anyone Can Code',
   template: 'template.ejs',
   links: [
-    'https://fonts.googleapis.com/icon?family=Material+Icons|Source+Sans+Pro'
   ],
   scripts: [
-    'https://cdn.omise.co/omise.js.gz'
   ],
   inject: false
 })
