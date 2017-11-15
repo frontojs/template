@@ -1,3 +1,3 @@
-# Codemy.net V2
+# FrontoJS Starter Template
 
-This is the new Codemy.net Site
+This is the Starter Template for FrontoJS
