@@ -1,44 +1,52 @@
-const webpack = require('webpack');
-const { join, resolve } = require('path');
-const { sync } = require('glob');
+const webpack = require('webpack')
+const path = require('path')
+const { sync } = require('glob')
 
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const loadersDir = join(__dirname, 'config', 'loaders');
+const loadersDir = path.join(__dirname, 'config', 'loaders')
 
-const entry = require('./entry');
-const output = require('./output');
+const entry = require('./entry')
+const output = require('./output')
+const resolve = require('./resolve')
 
 const loaders = {
   babel: require('./loaders/babel'),
   assets: require('./loaders/assets')
-};
+}
 
-const css = require('./styles/css');
-const postcss = require('./styles/postcss');
-const sass = require('./styles/sass');
+const css = require('./styles/css')
+const postcss = require('./styles/postcss')
+const sass = require('./styles/sass')
 
 const config = {
   entry,
   output,
+  resolve,
 
   module: {
     rules: [
       loaders.babel, loaders.assets, {
-      test: /\.(scss|sass|css)$/i,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [css, postcss,'resolve-url-loader', sass]
-      })
-    }]
+        test: /\.css$/i,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader', use: 'css-loader',
+        })
+      }, {
+        test: /\.(scss|sass)$/i,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [css, postcss,'resolve-url-loader', sass]
+        })
+      }
+    ]
   },
 
   plugins: [
-    require(resolve(__dirname, 'template')),
+    require(path.resolve(__dirname, 'template')),
     new CleanWebpackPlugin(['dist'], { 
-      root: resolve(__dirname, '..')
+      root: path.resolve(__dirname, '..')
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
@@ -52,6 +60,6 @@ const config = {
       minChunks: Infinity
     }),
   ]
-};
+}
 
-module.exports = config;
+module.exports = config

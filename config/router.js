@@ -5,16 +5,17 @@ import browserPlugin from 'router5/plugins/browser';
 
 import routes from './routes';
 
-export default function configureRouter(useListenersPlugin = false) {
+export default function configureRouter(options = { listener: false, logger: false }) {
   const router = createRouter(routes, {
     defaultRoute: 'posts'
   })
-    .usePlugin(loggerPlugin)
     .usePlugin(browserPlugin())
 
-  if (useListenersPlugin) {
+  if (options.listener)
     router.usePlugin(listenersPlugin())
-  }
+
+  if (options.logger)
+    router.usePlugin(loggerPlugin)
 
   return router;
 }

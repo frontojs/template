@@ -3,8 +3,7 @@ module.exports = {
   use: [{
     loader: 'file-loader',
     options: {
-      name: '[name]-[hash].[ext]',
-      publicPath: 'assets/'
+      name: 'assets/[name]-[hash].[ext]',
     }
   }]
 }
