@@ -8,27 +8,37 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const loadersDir = join(__dirname, 'config', 'loaders');
 
-const config = {
-  entry: {
-    app: resolve(__dirname, 'app'),
-    vendor: resolve(__dirname, 'vendor')
-  },
+const entry = require('./entry');
+const output = require('./output');
 
-  output: {
-    filename: 'javascripts/[name].[chunkhash].js',
-    chunkFilename: 'javascripts/[name].[chunkhash].js',
-    publicPath: '/',
-    path: resolve(__dirname, 'dist')
-  },
+const loaders = {
+  babel: require('./loaders/babel'),
+  assets: require('./loaders/assets')
+};
+
+const css = require('./styles/css');
+const postcss = require('./styles/postcss');
+const sass = require('./styles/sass');
+
+const config = {
+  entry,
+  output,
 
   module: {
-    rules: sync(join(loadersDir, '*.js')).map(loader => require(loader))
+    rules: [
+      loaders.babel, loaders.assets, {
+      test: /\.(scss|sass|css)$/i,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [css, postcss,'resolve-url-loader', sass]
+      })
+    }]
   },
 
   plugins: [
-    require(resolve(__dirname, 'config', 'template')),
+    require(resolve(__dirname, 'template')),
     new CleanWebpackPlugin(['dist'], { 
-      root: resolve(__dirname)
+      root: resolve(__dirname, '..')
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true

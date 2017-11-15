@@ -10,5 +10,19 @@
     "@babel/es2017",
     "@babel/stage-0",
     "@babel/react"
+  ],
+
+  "plugins": [
+    ["react-css-modules", { 
+      "context": "./",
+      "filetypes": {
+        ".sass": { 
+          "syntax": "sugarss",
+          "plugins": [
+            "autoprefixer"
+          ]
+        }
+      }
+    }]
   ]
 }
