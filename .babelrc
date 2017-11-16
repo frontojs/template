@@ -13,6 +13,7 @@
   ],
 
   "plugins": [
+    "lodash",
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     ["react-css-modules", { 
       "context": "./",

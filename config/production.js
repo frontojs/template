@@ -5,6 +5,7 @@ const { sync } = require('glob')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 const loadersDir = path.join(__dirname, 'config', 'loaders')
 
@@ -51,6 +52,7 @@ const config = {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
+    new LodashModuleReplacementPlugin,
     new UglifyJSPlugin({}),
     new ExtractTextPlugin({
       filename: 'stylesheets/[name].[contentHash].css', allChunks: true
