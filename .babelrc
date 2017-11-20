@@ -7,14 +7,21 @@
       },
       "useBuiltIns": "entry"
     }],
-    "@babel/es2017",
     "@babel/stage-0",
     "@babel/react"
   ],
 
   "plugins": [
     "lodash",
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["module-resolver", {
+      "root": "./app",
+      "alias": {
+        "config": "./config"
+      }
+    }],
+    ["@babel/plugin-proposal-class-properties", { 
+      "loose": true 
+    }],
     ["react-css-modules", { 
       "context": "./",
       "filetypes": {
