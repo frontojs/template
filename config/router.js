@@ -1,9 +1,9 @@
-import createRouter from 'router5';
-import loggerPlugin from 'router5/plugins/logger';
-import listenersPlugin from 'router5/plugins/listeners';
-import browserPlugin from 'router5/plugins/browser';
+import createRouter from 'router5'
+import loggerPlugin from 'router5/plugins/logger'
+import listenersPlugin from 'router5/plugins/listeners'
+import browserPlugin from 'router5/plugins/browser'
 
-import routes from './routes';
+import routes from './routes'
 
 export default function configureRouter(options = { listener: false, logger: false }) {
   const router = createRouter(routes, {
@@ -17,5 +17,5 @@ export default function configureRouter(options = { listener: false, logger: fal
   if (options.logger)
     router.usePlugin(loggerPlugin)
 
-  return router;
+  return router
 }
