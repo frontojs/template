@@ -6,8 +6,8 @@ const entry = require('./entry')
 const output = require('./output')
 const resolve = require('./resolve')
 
-output.filename = 'javascripts/[name].[hash].js'
-output.chunkFilename = 'javascripts/[name].[hash].chunk.js'
+output.filename = 'javascripts/[name].js'
+output.chunkFilename = 'javascripts/[name].chunk.js'
 
 const loaders = {
   babel: require('./loaders/babel'),
@@ -35,7 +35,7 @@ const config = {
   plugins: [
     require(path.resolve(__dirname, 'template')),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
+      name: ['base', 'manifest'],
       minChunks: Infinity
     })
   ],
@@ -48,7 +48,10 @@ const config = {
     watchOptions: {
       ignored: /node_modules/
     },
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      "/proxy": "http://localhost:4000"
+    }
   }
 }
 

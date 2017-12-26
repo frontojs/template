@@ -3,7 +3,7 @@
     ["@babel/env", {
       "modules": false,
       "targets": {
-        "browsers": "> 1%",
+        "browsers": "last 2 versions"
       },
       "useBuiltIns": "entry"
     }],
@@ -13,17 +13,19 @@
 
   "plugins": [
     "lodash",
+    "react-loadable/babel",
     ["module-resolver", {
       "root": "./app",
       "alias": {
-        "config": "./config"
+        "config": "./config",
+        "vendor": "./vendor"
       }
     }],
     ["@babel/plugin-proposal-class-properties", { 
       "loose": true 
     }],
-    ["react-css-modules", { 
-      "context": "./",
+    ["react-css-modules", {
+      "webpackHotModuleReloading": true,
       "filetypes": {
         ".sass": { 
           "syntax": "sugarss",

@@ -58,7 +58,7 @@ const config = {
       filename: 'stylesheets/[name].[contentHash].css', allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
+      name: ['base', 'manifest'],
       minChunks: Infinity
     }),
   ]
