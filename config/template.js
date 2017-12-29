@@ -1,13 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = new HtmlWebpackPlugin({
-  chunks: ['vendor', 'app', 'manifest'],
+  chunks: ['base', 'app', 'manifest'],
   filename: 'index.html',
-  name: 'Codemy',
+  name: 'app_name',
   minify: { 
     collapseWhitespace: true
   },
-  title: 'Codemy.net - Anyone Can Code',
+  title: 'Welcome to Fronto JS',
   template: 'template.ejs',
   links: [
   ],

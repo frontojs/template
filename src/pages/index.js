@@ -1,15 +1,16 @@
-import { createElement } from 'react'
+import React, { createElement } from 'react'
 import { routeNode } from 'react-router5'
-
-import * as posts from './posts'
-
-const pages = { posts }
+import Loadable from 'react-loadable'
+import Loading from 'components/loading'
 
 export default routeNode('')((props) => {
-  const { route } = props;
+  const { route } = props
+  const { params } = route
 
-  const resource = route.name.split('.')[0]
-  const page = route.name.split('.')[-1] || 'collection'
+  const segment = route.name.split('.')[0]
 
-  return createElement(pages[resource][page])
-})
+  return createElement(Loadable({
+    loader: () => import(`./${segment}`),
+    loading: (props) => <Loading />
+  }))
+ })

@@ -15,7 +15,7 @@
     "lodash",
     "react-loadable/babel",
     ["module-resolver", {
-      "root": "./app",
+      "root": "./src",
       "alias": {
         "config": "./config",
         "vendor": "./vendor"

@@ -1,3 +1,3 @@
 module.exports = {
-  modules: ['lib', 'app', 'node_modules']
+  modules: ['lib', 'src', 'node_modules']
 }

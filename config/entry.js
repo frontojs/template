@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 
 module.exports = {
-  app: resolve(__dirname, '..', 'app', 'main'),
-  vendor: resolve(__dirname, '..', 'app', 'vendor')
+  app: resolve(__dirname, '..', 'src', 'main'),
+  base: resolve(__dirname, '..', 'src', 'base')
 };

@@ -5,7 +5,7 @@ module.exports = {
   options: { 
     sourceMap: true,
     includePaths: [
-      resolve(__dirname, '..', '..', 'app'), 
+      resolve(__dirname, '..', '..', 'src'), 
       'node_modules'
     ]
   }
