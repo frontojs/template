@@ -10,11 +10,11 @@
     "test": "BABEL_ENV=test jest"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.32",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.32",
-    "@babel/preset-env": "^7.0.0-beta.32",
-    "@babel/preset-react": "^7.0.0-beta.32",
-    "@babel/preset-stage-0": "^7.0.0-beta.32",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-0": "^7.0.0",
     "autoprefixer": "^7.1.6",
     "babel-loader": "^8.0.4",
     "babel-plugin-lodash": "^3.3.2",
