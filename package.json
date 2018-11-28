@@ -23,6 +23,7 @@
     "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.5",
     "fronto-api": "^1.0.2",
     "fronto-connect": "^1.0.8",
@@ -46,7 +47,6 @@
     "uglifyjs-webpack-plugin": "^1.0.1"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "^0.4.5",
     "sugarss": "^1.0.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
