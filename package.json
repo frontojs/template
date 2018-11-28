@@ -49,6 +49,7 @@
     "mini-css-extract-plugin": "^0.4.5",
     "sugarss": "^1.0.1",
     "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   }
 }
